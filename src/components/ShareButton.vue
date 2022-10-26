@@ -1,4 +1,5 @@
 <script setup>
+import share from "@/assets/share.svg";
 const props = defineProps({ query: String });
 
 function getSharingUrl() {
@@ -18,7 +19,9 @@ function copySharingUrl() {
 </script>
 
 <template>
-  <button @click="copySharingUrl">공유</button>
+  <button @click="copySharingUrl">
+    <img :src="share" />
+  </button>
 </template>
 
 <style scoped>
@@ -30,5 +33,10 @@ button {
   border: none;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
+}
+
+img {
+  width: 22px;
+  height: 22px;
 }
 </style>

@@ -27,7 +27,7 @@ function copySharingUrl(q) {
   <button name="button" @click="copySharingUrl(props.query)">
     <img :src="share" />
   </button>
-  <label v-if="hasCopied" for="button">링크를 복사했습니다.</label>
+  <label v-if="hasCopied" class="good" for="button">링크를 복사했습니다.</label>
 </template>
 
 <style scoped>
@@ -39,6 +39,18 @@ button {
   border: none;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
+}
+
+label {
+  position: absolute;
+  transform: translate(calc(-50% - 28px), 60px);
+  padding: 5px 16px;
+  border-radius: 5px;
+}
+
+label.good {
+  background-color: var(--light-green);
+  color: var(--dark-green);
 }
 
 img {

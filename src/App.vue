@@ -1,17 +1,29 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { getQuery } from "@/helpers";
+import DictationSearch from "./components/DictationSearch.vue";
 import SearchButton from "./components/SearchButton.vue";
 import ShareButton from "./components/ShareButton.vue";
 
-const query = ref("");
-const isSharedUrl = getQuery() === null || getQuery().trim().length === 0;
+const searchQuery = ref("");
+const urlQuery = computed(() => getQuery());
+const isSharedUrl =
+  urlQuery.value === null || urlQuery.value.trim().length === 0;
 </script>
 
 <template>
-  <input v-model="query" />
-  <ShareButton v-if="isSharedUrl" :query="query" />
-  <SearchButton v-else />
+  <div v-if="isSharedUrl">
+    <input v-model="searchQuery" />
+    <ShareButton :searchQuery="searchQuery" />
+  </div>
+  <div v-else>
+    <DictationSearch :word="urlQuery" />
+    <SearchButton />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+div {
+  text-align: center;
+}
+</style>

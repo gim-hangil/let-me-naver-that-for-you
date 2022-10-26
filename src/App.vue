@@ -1,8 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import ShareButton from "./components/ShareButton.vue";
+
+const query = ref("");
+</script>
 
 <template>
-  <input />
-  <button>검색</button>
+  <input v-model="query" />
+  <ShareButton :query="query" />
 </template>
 
 <style scoped></style>

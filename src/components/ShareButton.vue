@@ -4,12 +4,16 @@ const props = defineProps({ query: String });
 function getSharingUrl() {
   const protocol = window.location.protocol + "//";
   const hostname = window.location.host;
-  const query = "?q=" + (props.query ? encodeURI(props.query) : "");
+  const query = "?q=" + encodeURI(props.query);
   return protocol + hostname + query;
 }
 
 function copySharingUrl() {
-  navigator.clipboard.writeText(getSharingUrl());
+  if (props.query.trim().length === 0) {
+    window.alert("⚠️ 검색어를 입력해주세요");
+  } else {
+    navigator.clipboard.writeText(getSharingUrl());
+  }
 }
 </script>
 

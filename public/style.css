@@ -7,3 +7,7 @@ html {
   --light-red: #ffccc7;
   --dark-red: #a11205;
 }
+
+h1.logo {
+  text-align: center;
+}

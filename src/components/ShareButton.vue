@@ -1,27 +1,33 @@
 <script setup>
+import { ref, watch } from "vue";
+import { getSharingUrl } from "@/helpers";
 import share from "@/assets/share.svg";
+
 const props = defineProps({ query: String });
+const hasCopied = ref(false);
 
-function getSharingUrl() {
-  const protocol = window.location.protocol + "//";
-  const hostname = window.location.host;
-  const query = "?q=" + encodeURI(props.query);
-  return protocol + hostname + query;
-}
+watch(
+  () => props.query,
+  () => {
+    hasCopied.value = false;
+  }
+);
 
-function copySharingUrl() {
-  if (props.query.trim().length === 0) {
+function copySharingUrl(q) {
+  if (q.trim().length === 0) {
     window.alert("⚠️ 검색어를 입력해주세요");
   } else {
-    navigator.clipboard.writeText(getSharingUrl());
+    navigator.clipboard.writeText(getSharingUrl(q));
+    hasCopied.value = true;
   }
 }
 </script>
 
 <template>
-  <button @click="copySharingUrl">
+  <button name="button" @click="copySharingUrl(props.query)">
     <img :src="share" />
   </button>
+  <label v-if="hasCopied" for="button">링크를 복사했습니다.</label>
 </template>
 
 <style scoped>

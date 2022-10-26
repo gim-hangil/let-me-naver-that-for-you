@@ -14,7 +14,7 @@ const isSharedUrl =
 <template>
   <div v-if="isSharedUrl">
     <input v-model="searchQuery" />
-    <ShareButton :searchQuery="searchQuery" />
+    <ShareButton :query="searchQuery" />
   </div>
   <div v-else>
     <DictationSearch :word="urlQuery" />

@@ -1,10 +1,6 @@
 <script setup>
 import search from "@/assets/search.svg";
-
-function getQuery() {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("q");
-}
+import { getQuery } from "@/helpers";
 
 function redirectToNaver() {
   location.href = `https://search.naver.com/search.naver?query=${getQuery()}`;

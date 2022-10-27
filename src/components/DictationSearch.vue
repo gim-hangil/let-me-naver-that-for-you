@@ -5,6 +5,7 @@ const props = defineProps({ word: String });
 const text = ref("");
 const entering = ref(false);
 const correctInput = computed(() => props.word.startsWith(text.value));
+const finishInput = computed(() => props.word === text.value);
 
 if (!entering.value) {
   setTimeout(() => {
@@ -20,7 +21,8 @@ if (!entering.value) {
     @input="(e) => (text = e.target.value)"
     name="search"
   />
-  <label for="search" :class="entering ? 'entering' : ''">
+  <label v-if="finishInput" class="entering">이제 검색 버튼을 누르세요.</label>
+  <label v-else for="search" :class="entering ? 'entering' : ''">
     <span class="darkgreen">{{ props.word }}</span>
     <span class="grey">를 입력하세요.</span>
   </label>

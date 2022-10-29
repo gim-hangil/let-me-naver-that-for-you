@@ -53,6 +53,7 @@ label {
   position: absolute;
   box-sizing: border-box;
   transform: translate(-293px, 2px);
+  width: 100%;
   max-width: 296px;
   height: 52px;
   padding: 13px 10px;

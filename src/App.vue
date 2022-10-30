@@ -18,6 +18,7 @@ const isSharedUrl =
       <SearchBar
         :value="searchQuery"
         @input="(e) => (searchQuery = e.target.value)"
+        autofocus
       />
     </div>
     <div>

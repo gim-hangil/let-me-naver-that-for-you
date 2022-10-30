@@ -15,6 +15,7 @@ const isSharedUrl =
 <template>
   <div v-if="isSharedUrl">
     <SearchBar
+      style="width: calc(100% - 60px); max-width: 582px"
       :value="searchQuery"
       @input="(e) => (searchQuery = e.target.value)"
     />

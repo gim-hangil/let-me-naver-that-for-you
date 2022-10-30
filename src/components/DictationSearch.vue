@@ -16,17 +16,18 @@ if (!entering.value) {
 </script>
 
 <template>
-  <SearchBar
-    :class="correctInput ? '' : 'wrong'"
-    :value="text"
-    @input="(e) => (text = e.target.value)"
-    name="search"
-  />
   <label v-if="finishInput" class="entering">이제 검색 버튼을 누르세요.</label>
   <label v-else for="search" :class="entering ? 'entering' : ''">
     <span class="darkgreen">{{ props.word }}</span>
     <span class="grey">를 입력하세요.</span>
   </label>
+  <SearchBar
+    style="width: calc(100% - 60px); max-width: 582px"
+    :class="correctInput ? '' : 'wrong'"
+    :value="text"
+    @input="(e) => (text = e.target.value)"
+    name="search"
+  />
 </template>
 
 <style scoped>
@@ -38,7 +39,7 @@ if (!entering.value) {
 label {
   position: absolute;
   box-sizing: border-box;
-  transform: translate(-293px, 2px);
+  transform: translate(2px);
   width: 100%;
   max-width: 296px;
   height: 52px;
@@ -46,10 +47,11 @@ label {
   font-size: 18px;
   text-align: left;
   transition: 300ms ease;
+  z-index: 1;
 }
 
 label.entering {
-  transform: translate(-293px, 56px);
+  transform: translateY(56px);
 }
 
 .grey {

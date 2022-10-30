@@ -20,7 +20,7 @@ watch(addr, (newAddr) => {
       />
     </div>
     <div class="window">
-      <slot />
+      <slot v-if="addr === 'naver.com'" />
     </div>
   </div>
 </template>

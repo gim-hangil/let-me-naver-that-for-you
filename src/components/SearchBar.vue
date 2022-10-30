@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <input />
+  <input autocomplete="off" />
 </template>
 
 <style scoped>

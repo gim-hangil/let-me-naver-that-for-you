@@ -17,6 +17,7 @@ watch(addr, (newAddr) => {
         v-model="addr"
         placeholder="naver.com 을 입력하세요"
         :disabled="addr === 'naver.com'"
+        autocomplete="off"
       />
     </div>
     <div class="window">

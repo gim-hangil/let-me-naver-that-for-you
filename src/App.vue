@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { getQuery } from "@/helpers";
 import DictationSearch from "./components/DictationSearch.vue";
+import SearchBar from "./components/SearchBar.vue";
 import SearchButton from "./components/SearchButton.vue";
 import ShareButton from "./components/ShareButton.vue";
 
@@ -13,7 +14,7 @@ const isSharedUrl =
 
 <template>
   <div v-if="isSharedUrl">
-    <input v-model="searchQuery" />
+    <SearchBar v-model="searchQuery" />
     <ShareButton :query="searchQuery" />
   </div>
   <div v-else>

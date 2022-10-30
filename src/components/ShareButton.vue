@@ -51,6 +51,7 @@ button {
 label {
   position: absolute;
   transform: translate(calc(-50% - 28px), 60px);
+  white-space: nowrap;
   padding: 5px 16px;
   border-radius: 5px;
 }

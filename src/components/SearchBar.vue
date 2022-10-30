@@ -7,7 +7,7 @@
 <style scoped>
 input {
   box-sizing: border-box;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   line-height: 56px;
   width: 300px;
   height: 56px;

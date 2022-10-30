@@ -21,9 +21,7 @@
 <p align="center">
   <a href="#기능">기능</a> •
   <a href="#사용법">사용법</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="https://lmntfy.netlify.app">데모</a>
 </p>
 
 ## 기능

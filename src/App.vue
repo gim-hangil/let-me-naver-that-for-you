@@ -14,7 +14,10 @@ const isSharedUrl =
 
 <template>
   <div v-if="isSharedUrl">
-    <SearchBar v-model="searchQuery" />
+    <SearchBar
+      :value="searchQuery"
+      @input="(e) => (searchQuery = e.target.value)"
+    />
     <ShareButton :query="searchQuery" />
   </div>
   <div v-else>

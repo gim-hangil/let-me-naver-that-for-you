@@ -8,6 +8,6 @@ html {
   --dark-red: #a11205;
 }
 
-h1.logo {
+body > header {
   text-align: center;
 }

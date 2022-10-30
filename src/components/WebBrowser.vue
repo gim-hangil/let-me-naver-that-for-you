@@ -18,6 +18,7 @@ watch(addr, (newAddr) => {
         placeholder="naver.com 을 입력하세요"
         :disabled="addr === 'naver.com'"
         autocomplete="off"
+        autofocus
       />
     </div>
     <div class="window">

@@ -9,26 +9,11 @@ import WebBrowser from "./components/WebBrowser.vue";
 
 const searchQuery = ref("");
 const urlQuery = computed(() => getQuery());
-const isSharedUrl =
-  urlQuery.value === null || urlQuery.value.trim().length === 0;
+const isSharedUrl = urlQuery.value !== null && urlQuery.value.trim().length > 0;
 </script>
 
 <template>
-  <div v-if="isSharedUrl" class="App">
-    <div class="container">
-      <div class="search-bar">
-        <SearchBar
-          :value="searchQuery"
-          @input="(e) => (searchQuery = e.target.value)"
-          autofocus
-        />
-      </div>
-      <div>
-        <ShareButton :query="searchQuery" />
-      </div>
-    </div>
-  </div>
-  <div v-else>
+  <div v-if="isSharedUrl">
     <div class="container">
       <WebBrowser>
         <div class="container">
@@ -40,6 +25,20 @@ const isSharedUrl =
           </div>
         </div>
       </WebBrowser>
+    </div>
+  </div>
+  <div v-else>
+    <div class="container">
+      <div class="search-bar">
+        <SearchBar
+          :value="searchQuery"
+          @input="(e) => (searchQuery = e.target.value)"
+          autofocus
+        />
+      </div>
+      <div>
+        <ShareButton :query="searchQuery" />
+      </div>
     </div>
   </div>
 </template>

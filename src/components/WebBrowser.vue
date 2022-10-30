@@ -28,11 +28,11 @@ watch(addr, (newAddr) => {
 
 <style scoped>
 .browser {
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 700px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 2px 7px #2228;
+  box-shadow: 0 2px 10px #2228;
 }
 
 .addr-bar {

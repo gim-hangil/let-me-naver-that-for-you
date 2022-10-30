@@ -13,22 +13,35 @@ const isSharedUrl =
 </script>
 
 <template>
-  <div v-if="isSharedUrl">
-    <SearchBar
-      style="width: calc(100% - 60px); max-width: 582px"
-      :value="searchQuery"
-      @input="(e) => (searchQuery = e.target.value)"
-    />
-    <ShareButton :query="searchQuery" />
+  <div v-if="isSharedUrl" class="App">
+    <div class="search-bar">
+      <SearchBar
+        :value="searchQuery"
+        @input="(e) => (searchQuery = e.target.value)"
+      />
+    </div>
+    <div>
+      <ShareButton :query="searchQuery" />
+    </div>
   </div>
-  <div v-else>
-    <DictationSearch :word="urlQuery" />
-    <SearchButton />
+  <div v-else class="App">
+    <div class="search-bar">
+      <DictationSearch :word="urlQuery" />
+    </div>
+    <div>
+      <SearchButton />
+    </div>
   </div>
 </template>
 
 <style scoped>
-div {
-  text-align: center;
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.App .search-bar {
+  flex: 1;
+  max-width: 582px;
 }
 </style>

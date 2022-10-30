@@ -22,7 +22,6 @@ if (!entering.value) {
     <span class="grey">를 입력하세요.</span>
   </label>
   <SearchBar
-    style="width: calc(100% - 60px); max-width: 582px"
     :class="correctInput ? '' : 'wrong'"
     :value="text"
     @input="(e) => (text = e.target.value)"

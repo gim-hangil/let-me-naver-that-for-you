@@ -8,6 +8,19 @@ html {
   --dark-red: #a11205;
 }
 
-body > header {
+.app-logo {
   text-align: center;
+}
+
+.app-logo span.small {
+  font-size: 0.8em;
+}
+
+.app-logo .green {
+  color: var(--green);
+}
+
+.app-logo h1 {
+  font-size: 2.7em;
+  margin-top: 0;
 }

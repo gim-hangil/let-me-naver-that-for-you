@@ -5,6 +5,7 @@ import DictationSearch from "./components/DictationSearch.vue";
 import SearchBar from "./components/SearchBar.vue";
 import SearchButton from "./components/SearchButton.vue";
 import ShareButton from "./components/ShareButton.vue";
+import WebBrowser from "./components/WebBrowser.vue";
 
 const searchQuery = ref("");
 const urlQuery = computed(() => getQuery());
@@ -14,34 +15,42 @@ const isSharedUrl =
 
 <template>
   <div v-if="isSharedUrl" class="App">
-    <div class="search-bar">
-      <SearchBar
-        :value="searchQuery"
-        @input="(e) => (searchQuery = e.target.value)"
-        autofocus
-      />
-    </div>
-    <div>
-      <ShareButton :query="searchQuery" />
+    <div class="container">
+      <div class="search-bar">
+        <SearchBar
+          :value="searchQuery"
+          @input="(e) => (searchQuery = e.target.value)"
+          autofocus
+        />
+      </div>
+      <div>
+        <ShareButton :query="searchQuery" />
+      </div>
     </div>
   </div>
-  <div v-else class="App">
-    <div class="search-bar">
-      <DictationSearch :word="urlQuery" />
-    </div>
-    <div>
-      <SearchButton />
+  <div v-else>
+    <div class="container">
+      <WebBrowser>
+        <div class="container">
+          <div class="search-bar">
+            <DictationSearch :word="urlQuery" />
+          </div>
+          <div>
+            <SearchButton />
+          </div>
+        </div>
+      </WebBrowser>
     </div>
   </div>
 </template>
 
 <style scoped>
-.App {
+.container {
   display: flex;
   justify-content: center;
 }
 
-.App .search-bar {
+.container .search-bar {
   flex: 1;
   max-width: 582px;
 }

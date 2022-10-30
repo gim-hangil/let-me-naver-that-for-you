@@ -8,6 +8,10 @@ html {
   --dark-red: #a11205;
 }
 
+input:focus {
+  outline: none;
+}
+
 .app-logo {
   text-align: center;
 }

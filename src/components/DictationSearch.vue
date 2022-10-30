@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
+import SearchBar from "@/components/SearchBar.vue";
 
 const props = defineProps({ word: String });
 const text = ref("");
@@ -15,7 +16,7 @@ if (!entering.value) {
 </script>
 
 <template>
-  <input
+  <SearchBar
     :class="correctInput ? '' : 'wrong'"
     :value="text"
     @input="(e) => (text = e.target.value)"
@@ -29,23 +30,7 @@ if (!entering.value) {
 </template>
 
 <style scoped>
-input {
-  box-sizing: border-box;
-  transform: translateY(-3px);
-  line-height: 56px;
-  width: 300px;
-  height: 56px;
-  padding: 13px 15px;
-  font-size: 18px;
-  border: 2px solid var(--green);
-  border-radius: 2px 0 0 2px;
-}
-
-input:focus {
-  outline: none;
-}
-
-input.wrong {
+.wrong {
   background-color: var(--light-red);
   color: var(--dark-red);
 }

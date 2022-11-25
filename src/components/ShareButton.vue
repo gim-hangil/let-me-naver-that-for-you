@@ -26,7 +26,11 @@ function copySharingUrl(q) {
 </script>
 
 <template>
-  <button name="button" @click="copySharingUrl(props.query)">
+  <button
+    name="button"
+    @click="copySharingUrl(props.query)"
+    @keyup.enter="copySharingUrl(props.query)"
+  >
     <img :src="share" />
   </button>
   <label v-if="hasCopied" class="good" for="button">

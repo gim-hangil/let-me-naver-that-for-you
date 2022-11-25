@@ -8,8 +8,13 @@ import ShareButton from "./components/ShareButton.vue";
 import WebBrowser from "./components/WebBrowser.vue";
 
 const searchQuery = ref("");
+const shareButton = ref(null);
 const urlQuery = computed(() => getQuery());
 const isSharedUrl = urlQuery.value !== null && urlQuery.value.trim().length > 0;
+
+function copySharingUrl() {
+  shareButton.value.copySharingUrl(searchQuery.value);
+}
 </script>
 
 <template>
@@ -33,11 +38,12 @@ const isSharedUrl = urlQuery.value !== null && urlQuery.value.trim().length > 0;
         <SearchBar
           :value="searchQuery"
           @input="(e) => (searchQuery = e.target.value)"
+          @keyup.enter="copySharingUrl"
           autofocus
         />
       </div>
       <div>
-        <ShareButton :query="searchQuery" />
+        <ShareButton ref="shareButton" :query="searchQuery" />
       </div>
     </div>
   </div>

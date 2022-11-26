@@ -23,7 +23,7 @@ function copySharingUrl() {
       <WebBrowser>
         <div class="container">
           <div class="search-bar">
-            <DictationSearch :word="urlQuery" />
+            <DictationSearch :word="urlQuery" @keyup.enter="copySharingUrl" />
           </div>
           <div>
             <SearchButton />

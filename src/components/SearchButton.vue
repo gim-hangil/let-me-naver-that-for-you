@@ -5,6 +5,8 @@ import { getQuery } from "@/helpers";
 function redirectToNaver() {
   location.href = `https://search.naver.com/search.naver?query=${getQuery()}`;
 }
+
+defineExpose({ redirectToNaver });
 </script>
 
 <template>

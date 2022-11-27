@@ -22,6 +22,7 @@ if (!entering.value) {
     <span class="grey">를 입력하세요.</span>
   </label>
   <SearchBar
+    v-bind="$attrs"
     :class="correctInput ? '' : 'wrong'"
     :value="text"
     @input="(e) => (text = e.target.value)"

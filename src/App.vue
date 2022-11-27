@@ -17,7 +17,7 @@ function copySharingUrl() {
   shareButton.value.copySharingUrl(searchQuery.value);
 }
 function redirectToNaver() {
-  searchButton.value.redirectToNaver()
+  searchButton.value.redirectToNaver();
 }
 </script>
 

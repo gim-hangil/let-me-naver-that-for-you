@@ -6,7 +6,9 @@ import { startsWithKorSupport } from "@/helpers";
 const props = defineProps({ word: String });
 const text = ref("");
 const entering = ref(false);
-const correctInput = computed(() => startsWithKorSupport(props.word, text.value));
+const correctInput = computed(() =>
+  startsWithKorSupport(props.word, text.value)
+);
 const finishInput = computed(() => props.word === text.value);
 
 if (!entering.value) {
@@ -14,6 +16,8 @@ if (!entering.value) {
     entering.value = true;
   }, 300);
 }
+
+defineExpose({ text });
 </script>
 
 <template>

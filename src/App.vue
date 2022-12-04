@@ -9,6 +9,7 @@ import WebBrowser from "./components/WebBrowser.vue";
 
 const searchQuery = ref("");
 const shareButton = ref(null);
+const dictationSearch = ref(null);
 const searchButton = ref(null);
 const urlQuery = computed(() => getQuery());
 const isSharedUrl = urlQuery.value !== null && urlQuery.value.trim().length > 0;
@@ -17,7 +18,9 @@ function copySharingUrl() {
   shareButton.value.copySharingUrl(searchQuery.value);
 }
 function redirectToNaver() {
-  searchButton.value.redirectToNaver();
+  if (dictationSearch.value.text === urlQuery.value) {
+    searchButton.value.redirectToNaver();
+  }
 }
 </script>
 
@@ -27,10 +30,14 @@ function redirectToNaver() {
       <WebBrowser>
         <div class="container">
           <div class="search-bar">
-            <DictationSearch :word="urlQuery" @keyup.enter="redirectToNaver" />
+            <DictationSearch
+              ref="dictationSearch"
+              :word="urlQuery"
+              @keyup.enter="redirectToNaver"
+            />
           </div>
           <div>
-            <SearchButton ref="searchButton" />
+            <SearchButton ref="searchButton" :onclick="redirectToNaver" />
           </div>
         </div>
       </WebBrowser>

@@ -2,6 +2,8 @@
 import search from "@/assets/search.svg";
 import { getQuery } from "@/helpers";
 
+defineProps({ onclick });
+
 function redirectToNaver() {
   location.href = `https://search.naver.com/search.naver?query=${getQuery()}`;
 }
@@ -10,7 +12,7 @@ defineExpose({ redirectToNaver });
 </script>
 
 <template>
-  <button @click="redirectToNaver">
+  <button @click="onclick || redirectToNaver">
     <img :src="search" />
   </button>
 </template>

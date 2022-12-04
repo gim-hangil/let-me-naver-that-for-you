@@ -13,11 +13,16 @@ export function getSharingUrl(q) {
 }
 
 export function startsWithKorSupport(a, b) {
-  const aDisassembled = hangul.disassemble(a);
-  const bDisassembled = hangul.disassemble(b);
+  if (!a.startsWith(b.slice(0, -1))) {
+    return false;
+  }
+  const aDisassembled = hangul.disassemble(a, false);
+  const bDisassembled = hangul.disassemble(b, false);
   for (let i = 0; i < bDisassembled.length; i++) {
-    if (aDisassembled[i] !== bDisassembled[i]) {
-      return false;
+    for (let d = 0; d < aDisassembled[i].length; d++) {
+      if (aDisassembled[i][d] !== bDisassembled[i][d]) {
+        return false;
+      }
     }
   }
   return true;

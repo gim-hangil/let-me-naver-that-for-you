@@ -1,11 +1,12 @@
 <script setup>
 import { ref, computed } from "vue";
 import SearchBar from "@/components/SearchBar.vue";
+import { startsWithKorSupport } from "@/helpers";
 
 const props = defineProps({ word: String });
 const text = ref("");
 const entering = ref(false);
-const correctInput = computed(() => props.word.startsWith(text.value));
+const correctInput = computed(() => startsWithKorSupport(props.word, text.value));
 const finishInput = computed(() => props.word === text.value);
 
 if (!entering.value) {

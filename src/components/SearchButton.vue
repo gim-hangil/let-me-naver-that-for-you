@@ -12,7 +12,7 @@ defineExpose({ redirectToNaver });
 </script>
 
 <template>
-  <button @click="onclick || redirectToNaver">
+  <button @click="onclick ? onclick() : redirectToNaver()">
     <img :src="search" />
   </button>
 </template>
